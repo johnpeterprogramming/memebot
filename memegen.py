@@ -11,11 +11,11 @@ if formatted_date not in os.listdir(os.path.abspath(os.path.dirname(__file__))):
     os.mkdir(download_folder)
 
 reddit = praw.Reddit(
-    client_id="9v-IMWqAk3xvAQ",
-    client_secret="RwXXDNHJqeI554JtmGa5gUkqMWk",
+    client_id=os.getenv('client_id'),
+    client_secret=os.getenv('client_secret'),
     user_agent="memegen by ToiletPaperMan",
-    username="ToilerPaperMan",
-    password='27johna04'
+    username=os.getenv('username'),
+    password=os.genenv('passwd')
 )
 
 subreddits = [
