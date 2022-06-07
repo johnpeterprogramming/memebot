@@ -1,5 +1,7 @@
 import praw, os, wget
 from datetime import date
+from decouple import config
+
 
 today = date.today()
 
@@ -11,11 +13,11 @@ if formatted_date not in os.listdir(os.path.abspath(os.path.dirname(__file__))):
     os.mkdir(download_folder)
 
 reddit = praw.Reddit(
-    client_id=os.getenv('client_id'),
-    client_secret=os.getenv('client_secret'),
+    client_id=config('client_id'),
+    client_secret=config('client_secret'),
     user_agent="memegen by ToiletPaperMan",
-    username=os.getenv('username'),
-    password=os.genenv('passwd')
+    username=config('username'),
+    password=config('passwd')
 )
 
 subreddits = [
